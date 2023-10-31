@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
+import ExperenceCard from "../components/ExperenceCard.astro";
 import { getCollection } from "astro:content";
 
 const posts = (await getCollection("blog")).sort(
@@ -34,11 +35,7 @@ const last_posts = posts.slice(0, 3);
       >
         Let's connect!</a
       >
-      <a
-        href="https://github.com/manuelernestog/astrofy"
-        target="_blank"
-        class="btn ml-5">Portfolio</a
-      >
+      <a href="/projects" target="_blank" class="btn ml-5">Portfolio</a>
       <a
         href="https://www.linkedin.com/in/nicholas-trigger-7148651aa/"
         target="_blank"
@@ -94,6 +91,36 @@ const last_posts = posts.slice(0, 3);
   </div>
 
   <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Experience</div>
+  </div>
+
+  <ExperenceCard
+    title="Assistant Manager"
+    employer="The Foundry - Duke University"
+    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla viverra tempor nunc sed feugiat. Nam justo metus, malesuada a tempus id, luctus vitae elit. Proin vel dignissim odio, id iaculis mauris. Maecenas euismod euismod faucibus."
+    img="/post_img.webp"
+    url="#"
+  />
+  <div class="divider my-0"></div>
+  <ExperenceCard
+    title="Engineering Design TA"
+    employer="Duke University Pratt School of Engineering"
+    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla viverra tempor nunc sed feugiat. Nam justo metus, malesuada a tempus id, luctus vitae elit. Proin vel dignissim odio, id iaculis mauris. Maecenas euismod euismod faucibus."
+    img="/post_img.webp"
+    url="#"
+  />
+  <div class="divider my-0"></div>
+  <ExperenceCard
+    title="Clinical Research Associate"
+    employer="Christus Spohn Health System - Shoreline"
+    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla viverra tempor nunc sed feugiat. Nam justo metus, malesuada a tempus id, luctus vitae elit. Proin vel dignissim odio, id iaculis mauris. Maecenas euismod euismod faucibus."
+    img="/post_img.webp"
+    url="#"
+  />
+  <div class="divider my-0"></div>
+
+  <!-- 
+  <div>
     <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
   </div>
 
@@ -112,4 +139,5 @@ const last_posts = posts.slice(0, 3);
       </>
     ))
   }
+  -->
 </BaseLayout>
