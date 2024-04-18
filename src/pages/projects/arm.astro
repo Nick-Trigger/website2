@@ -3,11 +3,62 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title = "Nicholas Trigger - ALPT" sideBarActiveItemID="projects">
+  <style>
+
+    #wrapper {
+        text-align: center;
+    }
+
+    #wrapper, iframe {
+      margin: 0 auto;
+    }
+    #scaled-frame {
+      zoom: 100%;
+      overflow: hidden;
+      -moz-transform: scale(0.45);
+      -moz-transform-origin: center top;
+      -o-transform: scale(0.45);
+      -o-transform-origin: center top;
+      -webkit-transform: scale(0.45);
+      -webkit-transform-origin: center top;
+      -ms-transform: scale(0.45);
+      -ms-transform-origin: center top;
+      transform: scale(0.45);
+      transform-origin: center top;
+      display: block;
+    }
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+      #scaled-frame {
+        zoom: 100%;
+      }
+    }
+  </style>
+
   <div>
-    <div class="text-3xl w-full font-bold mb-5">Arterial Line Placement Training Device</div>
+    <div class="text-5xl w-full font-bold mb-5 text-center">Arterial Line Placement Training Device</div>
   </div>
 
-  <div class="flex-auto bg-neutral rounded-md padding-md">
-    <div class="text-3xl w-full font-bold mb-5 mt-10">Version 3.2</div>
+  <div class="flex-auto bg-neutral rounded-md padding-md shadow-2xl" id="rev4">
+    <h1 class="text-4xl space-y-15 text-center w-full font-bold mb-5 mt-10 pt-10">Revision 4</h1>
+    <h2 class="p-5"></h2>
   </div>
+  <div class="flex-auto bg-neutral rounded-md padding-md shadow-2xl" id="rev3">
+    <h1 class="text-4xl space-y-15 text-center w-full font-bold mb-5 mt-10 pt-10">Revision 3</h1>
+    <h2 class="p-5">
+        <iframe src="/3_2Rotate.html" id="scaled-frame" class="rounded-3xl border-8 border-base-100" width="1098" height="822" scrolling="no"></iframe>
+    </h2>
+  </div>
+  <div class="flex-center bg-neutral rounded-md padding-md shadow-2xl" id="rev2">
+    <h1 class="text-4xl space-y-15 text-center w-full font-bold mb-5 mt-10 pt-10">Revision 2</h1>
+    <h2 class="p-5">
+      <div id="wrapper">
+        <iframe src="/2Rotate.html" id="scaled-frame" class="rounded-3xl border-8 border-base-100" width="1136" height="640" scrolling="no"></iframe>
+      </div>
+    </h2>
+  </div>
+  <div class="flex-auto bg-neutral rounded-md padding-md shadow-2xl" id="rev1">
+    <h1 class="text-4xl space-y-15 text-center w-full font-bold mb-5 mt-10 pt-10">Revision 1</h1>
+    <h2 class="p-5"></h2>
+  </div>
+
 </BaseLayout>
