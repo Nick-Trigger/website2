@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title = "Nicholas Trigger - ALPT" sideBarActiveItemID="projects">
+  <style>
+
+    #wrapper {
+        text-align: center;
+    }
+
+    #wrapper, iframe {
+      margin: 0 auto;
+    }
+    #scaled-frame {
+      zoom: 100%;
+      overflow: hidden;
+      -moz-transform: scale(0.45);
+      -moz-transform-origin: center top;
+      -o-transform: scale(0.45);
+      -o-transform-origin: center top;
+      -webkit-transform: scale(0.45);
+      -webkit-transform-origin: center top;
+      -ms-transform: scale(0.45);
+      -ms-transform-origin: center top;
+      transform: scale(0.45);
+      transform-origin: center top;
+      display: block;
+    }
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+      #scaled-frame {
+        zoom: 100%;
+      }
+    }
+  </style>
+
+  <div>
+    <div class="flex-1 items-center">
+      <iframe src="/dog1poster.pdf" class="flex-1 aspect-1/1"></iframe>
+    </div>
+    <div class="divider my-0"></div>
+    <div>
+      <iframe src="/dog2poster.pdf" class="flex-1 aspect-1/1"></iframe>
+    </div>
+  </div>
+
+</BaseLayout>
