@@ -746,8 +746,8 @@ packages:
     resolution: {integrity: sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==}
     engines: {node: '>=14.16'}
 
-  caniuse-lite@1.0.30001580:
-    resolution: {integrity: sha512-mtj5ur2FFPZcCEpXFy8ADXbDACuNFXg6mxVDqp7tqooX6l3zwm+d8EPoeOSIFRDvHs8qu7/SLFOGniULkcH2iA==}
+  caniuse-lite@1.0.30001700:
+    resolution: {integrity: sha512-2S6XIXwaE7K7erT8dY+kLQcpa5ms63XlRkMkReXjle+kf6c5g38vyMl+Z5y8dSxOFDhcFe+nxnn261PLxBSQsQ==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -2977,7 +2977,7 @@ snapshots:
   autoprefixer@10.4.17(postcss@8.4.33):
     dependencies:
       browserslist: 4.22.2
-      caniuse-lite: 1.0.30001580
+      caniuse-lite: 1.0.30001700
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -3035,7 +3035,7 @@ snapshots:
 
   browserslist@4.22.2:
     dependencies:
-      caniuse-lite: 1.0.30001580
+      caniuse-lite: 1.0.30001700
       electron-to-chromium: 1.4.645
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.2)
@@ -3055,7 +3055,7 @@ snapshots:
 
   camelcase@7.0.1: {}
 
-  caniuse-lite@1.0.30001580: {}
+  caniuse-lite@1.0.30001700: {}
 
   ccount@2.0.1: {}
 
@@ -4348,8 +4348,9 @@ snapshots:
   postcss-load-config@4.0.2(postcss@8.4.33):
     dependencies:
       lilconfig: 3.0.0
-      postcss: 8.4.33
       yaml: 2.3.4
+    optionalDependencies:
+      postcss: 8.4.33
 
   postcss-nested@6.0.1(postcss@8.4.33):
     dependencies:
@@ -4997,7 +4998,7 @@ snapshots:
       fsevents: 2.3.3
 
   vitefu@0.2.5(vite@5.0.12):
-    dependencies:
+    optionalDependencies:
       vite: 5.0.12
 
   web-namespaces@2.0.1: {}
