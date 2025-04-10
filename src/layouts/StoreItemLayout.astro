@@ -22,6 +22,7 @@ const {
 dayjs.extend(localizedFormat);
 const displayDate = dayjs(updatedDate).format("ll");
 import { Image } from "astro:assets";
+import './src/styles/global.css'
 ---
 
 <BaseLayout title={title} description={description} image={heroImage}>

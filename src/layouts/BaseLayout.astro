@@ -3,60 +3,29 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import SideBar from "../components/SideBar.astro";
-import { fade } from "astro:transitions";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import "../styles/global.css";
 
-const { image, title = SITE_TITLE, description = SITE_DESCRIPTION, includeSidebar = true, sideBarActiveItemID } = Astro.props;
+const {
+  image,
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  includeSidebar = true,
+  sideBarActiveItemID,
+} = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en" data-theme="dracula" transition:animate="fade" style="scroll-padding-top: 5rem; scroll-behavior: smooth;">
+<!doctype html>
+<html lang="en" style="scroll-padding-top: 5rem; scroll-behavior: smooth;">
   <head>
-    <BaseHead title={title} description={description} image={image} />
-    <script>
-      // Immediately invoked function to set the theme
-      (function() {
-          // Check if a theme is saved in localStorage
-          var savedTheme = localStorage.getItem('theme');
-          if (savedTheme) {
-              // Apply the saved theme
-              document.documentElement.classList.add(savedTheme);
-          }
-      })();
-    </script>
+    <BaseHead
+      title={title}
+      description={description}
+      image={image} />
   </head>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const themeSwitcher = document.querySelector('.theme-controller');
-
-        // Update the checkbox based on the applied theme
-        const isDarkTheme = document.documentElement.classList.contains('dracula');
-        themeSwitcher.checked = isDarkTheme;
-
-        themeSwitcher.addEventListener('change', function() {
-            if(this.checked) {
-                // Switch to dark theme
-                document.documentElement.classList.add('dracula');
-                localStorage.setItem('theme', 'dracula');
-            } else {
-                // Switch to light theme
-                document.documentElement.classList.remove('dracula');
-                localStorage.setItem('theme', 'light');
-            }
-        });
-    });
-  </script>
-  
-  <script type="module">
-    import { ViewTransitions } from "astro:transitions";
-    function load() {
-      ViewTransitions.start();
-    }
-  </script>
-
-  <body onload="load()">
+  <body>
     <div class="bg-base-100 drawer lg:drawer-open">
       <input id="my-drawer" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content bg-base-100">
