@@ -1,15 +1,15 @@
 ---
 const { sideBarActiveItemID } = Astro.props;
-const activeClass = "bg-base-300"; // For primary color replace with `active` class
+const activeClass = "bg-primary"; // For primary color replace with `active` class
 ---
 
-<ul class="menu grow shrink menu-md overflow-y-auto">
-    <li><a class="py-3 text-base" id="home" href="/" data-astro-prefetch>Home</a></li>
-    <li><a class="py-3 text-base" id="projects" href="/projects" data-astro-prefetch>Projects</a></li>
+<ul class="menu grow shrink menu-md overflow-y-auto flex flex-col items-start w-full items-stretch">
+    <li><a class="py-3 my-0.5 text-base" id="home" href="/" >Home</a></li>
+    <li><a class="py-3 my-0.5 text-base" id="projects" href="/projects" >Projects</a></li>
     <!--<li><a class="py-3 text-base" id="services" href="/services">Services</a></li>
     <li><a class="py-3 text-base" id="store" href="/store">Store</a></li>
     <li><a class="py-3 text-base" id="blog" href="/blog/">Blog</a></li>-->
-    <li><a class="py-3 text-base" id="cv" href="/cv" data-astro-prefetch>CV</a></li>
+    <li><a class="py-3 my-0.5 text-base" id="cv" href="/cv" >CV</a></li>
     <!--<li>
         <a
             class="py-3 text-base"
@@ -21,6 +21,6 @@ const activeClass = "bg-base-300"; // For primary color replace with `active` cl
 </ul>
 
 <script define:vars={{ sideBarActiveItemID: sideBarActiveItemID, activeClass: activeClass }}>
-const activeItemElem = document.getElementById(sideBarActiveItemID);
-activeItemElem && activeItemElem.classList.add(activeClass);
+    const activeItemElem = document.getElementById(sideBarActiveItemID);
+    activeItemElem && activeItemElem.classList.add(activeClass);
 </script>
