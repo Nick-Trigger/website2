@@ -3,44 +3,21 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title = "Nicholas Trigger - ALPT" sideBarActiveItemID="projects">
-  <style>
 
-    #wrapper {
-        text-align: center;
-    }
-
-    #wrapper, iframe {
-      margin: 0 auto;
-    }
-    #scaled-frame {
-      zoom: 100%;
-      overflow: hidden;
-      -moz-transform: scale(0.45);
-      -moz-transform-origin: center top;
-      -o-transform: scale(0.45);
-      -o-transform-origin: center top;
-      -webkit-transform: scale(0.45);
-      -webkit-transform-origin: center top;
-      -ms-transform: scale(0.45);
-      -ms-transform-origin: center top;
-      transform: scale(0.45);
-      transform-origin: center top;
-      display: block;
-    }
-    @media screen and (-webkit-min-device-pixel-ratio:0) {
-      #scaled-frame {
-        zoom: 100%;
-      }
-    }
-  </style>
-
-  <div>
-    <div class="flex-1 items-center">
-      <iframe src="/dog1poster.pdf" class="flex-1 aspect-1/1"></iframe>
+  <div class="carousel w-full">
+    <div id="slide1" class="carousel-item relative w-full">
+      <iframe src="/dog1poster.pdf" class="w-full aspect-1/1"></iframe>
+      <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+        <a href="#slide2" class="btn btn-circle">❮</a>
+        <a href="#slide2" class="btn btn-circle">❯</a>
+      </div>
     </div>
-    <div class="divider my-0"></div>
-    <div>
-      <iframe src="/dog2poster.pdf" class="flex-1 aspect-1/1"></iframe>
+    <div id="slide2" class="carousel-item relative w-full">
+      <iframe src="/dog2poster.pdf" class="carousel-item relative w-full aspect-1/1></iframe>
+      <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+        <a href="#slide1" class="btn btn-circle">❮</a>
+        <a href="#slide1" class="btn btn-circle">❯</a>
+      </div>
     </div>
   </div>
 
