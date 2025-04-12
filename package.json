@@ -9,17 +9,26 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.2.3",
     "@astrojs/react": "^4.2.3",
     "@astrojs/rss": "^4.0.11",
+    "@astrojs/sitemap": "^3.3.0",
     "@tailwindcss/vite": "^4.1.3",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.2",
     "astro": "^5.6.1",
+    "astro-robots-txt": "^1.0.0",
     "daisyui": "^5.0.18",
+    "express": "^5.1.0",
+    "html-to-latex": "^0.8.0",
+    "jspdf": "^3.0.1",
+    "puppeteer": "^24.6.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "sass": "^1.86.3",
     "tailwindcss": "^4.1.3",
-    "vite": "^6.2.5"
+    "texlive": "^1.2.0",
+    "vite": "^6.2.5",
+    "zod": "^3.24.2"
   }
 }
