@@ -1,6 +1,6 @@
 # nicholastrigger.com
 
-Personal portfolio site for Nicholas Trigger — Duke BME Alum '26.
+Personal portfolio site for Nicholas Trigger — Duke BME Alum '26, focusing on biomedical device engineering.
 
 Live at [nicholastrigger.com](https://nicholastrigger.com).
 
@@ -8,10 +8,12 @@ Live at [nicholastrigger.com](https://nicholastrigger.com).
 
 ## Stack
 
-- **[Astro](https://astro.build)** — static site framework
+- **[Astro 5](https://astro.build)** — static site framework with file-based routing
 - **[Tailwind CSS v4](https://tailwindcss.com)** + **[DaisyUI v5](https://daisyui.com)** — styling and components
-- **[MDX](https://mdxjs.com)** — markdown + JSX for project pages
-- **[@tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin)** — prose rendering
+- **[MDX](https://mdxjs.com)** — markdown + JSX for rich project pages
+- **[React 19](https://react.dev)** — interactive components via Astro islands
+- **[@tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin)** — prose rendering for markdown content
+- **[Zod](https://zod.dev)** — frontmatter schema validation for content collections
 
 ---
 
@@ -19,17 +21,23 @@ Live at [nicholastrigger.com](https://nicholastrigger.com).
 
 ```text
 /
-├── public/                  # Static assets (images, PDFs, ibom.html)
+├── public/                  # Static assets (images, PDFs, 3D viewers, ibom.html)
 ├── src/
-│   ├── components/          # HorizontalCard, Header, SideBar, Footer, etc.
+│   ├── components/          # HorizontalCard, Header, SideBar, Footer, ExperenceCard, etc.
+│   ├── content/
+│   │   ├── config.ts            # Zod schemas for blog & store collections
+│   │   ├── blog/                # Blog post markdown files
+│   │   └── store/               # Store item markdown files
 │   ├── layouts/
 │   │   ├── BaseLayout.astro     # Root shell (sidebar, header, footer)
 │   │   ├── ProjectLayout.astro  # Reusable project detail page template
-│   │   └── PostLayout.astro     # Blog post layout
+│   │   ├── PostLayout.astro     # Blog post layout
+│   │   └── StoreItemLayout.astro
 │   ├── pages/
 │   │   ├── index.astro          # Home / landing page
 │   │   ├── projects.astro       # Projects listing
 │   │   ├── cv.astro             # CV page
+│   │   ├── 404.astro
 │   │   └── projects/
 │   │       ├── arm.astro            # Arterial Line Training Device
 │   │       ├── clabsi/
@@ -38,8 +46,12 @@ Live at [nicholastrigger.com](https://nicholastrigger.com).
 │   │       └── dog/
 │   │           ├── index.mdx        # Dog activity tracker detail page
 │   │           └── posters.astro    # Tabbed poster viewer (2 teams)
-│   └── styles/
-│       └── global.css
+│   ├── styles/
+│   │   └── global.css
+│   └── config.ts            # Site-wide metadata (title, description, socials)
+├── .github/
+│   └── workflows/
+│       └── deploy.yml       # GitHub Actions: build & deploy to GitHub Pages
 └── package.json
 ```
 
@@ -87,6 +99,14 @@ The slot content (markdown body) is rendered with `prose` typography styles.
 
 ---
 
+## Adding a Project
+
+1. Create `src/pages/projects/<slug>/index.mdx` using the frontmatter schema above.
+2. Add an entry to the grid in `src/pages/projects.astro`.
+3. Drop any static assets (images, PDFs, 3D viewers) into `public/`.
+
+---
+
 ## Commands
 
 | Command | Action |
@@ -95,3 +115,17 @@ The slot content (markdown body) is rendered with `prose` typography styles.
 | `npm run dev` | Start dev server at `localhost:4321` |
 | `npm run build` | Build to `./dist/` |
 | `npm run preview` | Preview production build locally |
+
+---
+
+## Deployment
+
+The site deploys automatically to **GitHub Pages** on every push to `main` via `.github/workflows/deploy.yml`. The custom domain `www.nicholastrigger.com` is configured via `public/CNAME`.
+
+To deploy manually:
+
+```bash
+npm run build   # outputs to ./dist/
+```
+
+Then push `./dist/` to the `gh-pages` branch, or let the workflow handle it.
