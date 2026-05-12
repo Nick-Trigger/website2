@@ -23,6 +23,11 @@ const {
       title={title}
       description={description}
       image={image} />
+    <script is:inline>
+      const saved = localStorage.getItem('theme');
+      const theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
   </head>
 
   <body>
