@@ -1,48 +1,97 @@
-# Astro Starter Kit: Basics
+# nicholastrigger.com
 
-```sh
-npm create astro@latest -- --template basics
-```
+Personal portfolio site for Nicholas Trigger — Duke BME Alum '26.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Live at [nicholastrigger.com](https://nicholastrigger.com).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Stack
 
-## 🚀 Project Structure
+- **[Astro](https://astro.build)** — static site framework
+- **[Tailwind CSS v4](https://tailwindcss.com)** + **[DaisyUI v5](https://daisyui.com)** — styling and components
+- **[MDX](https://mdxjs.com)** — markdown + JSX for project pages
+- **[@tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin)** — prose rendering
 
-Inside of your Astro project, you'll see the following folders and files:
+---
+
+## Project Structure
 
 ```text
 /
-├── public/
-│   └── favicon.svg
+├── public/                  # Static assets (images, PDFs, ibom.html)
 ├── src/
+│   ├── components/          # HorizontalCard, Header, SideBar, Footer, etc.
 │   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   │   ├── BaseLayout.astro     # Root shell (sidebar, header, footer)
+│   │   ├── ProjectLayout.astro  # Reusable project detail page template
+│   │   └── PostLayout.astro     # Blog post layout
+│   ├── pages/
+│   │   ├── index.astro          # Home / landing page
+│   │   ├── projects.astro       # Projects listing
+│   │   ├── cv.astro             # CV page
+│   │   └── projects/
+│   │       ├── arm.astro            # Arterial Line Training Device
+│   │       ├── clabsi/
+│   │       │   ├── index.mdx        # CLABSI project detail page
+│   │       │   └── poster.astro     # Capstone poster viewer
+│   │       └── dog/
+│   │           ├── index.mdx        # Dog activity tracker detail page
+│   │           └── posters.astro    # Tabbed poster viewer (2 teams)
+│   └── styles/
+│       └── global.css
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+---
 
-## 🧞 Commands
+## Pages
 
-All commands are run from the root of the project, from a terminal:
+| Route | Description |
+| ----- | ----------- |
+| `/` | Home — bio, featured projects, experience |
+| `/projects` | Full projects listing |
+| `/projects/arm` | Arterial Line Placement Training Device |
+| `/projects/clabsi` | CLABSI UV-C Disinfection Device |
+| `/projects/clabsi/poster` | CLABSI capstone poster viewer |
+| `/projects/dog` | Dog Activity Tracker (TA/consulting role) |
+| `/projects/dog/posters` | Tabbed poster viewer for both Foundry teams |
+| `/cv` | CV / resume |
+| `/clabsi-ibom.html` | Interactive KiCad BOM (served as static HTML) |
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+---
 
-## 👀 Want to learn more?
+## ProjectLayout Template
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+`ProjectLayout.astro` is a reusable layout for project detail pages. Use it from an `.mdx` file via frontmatter:
+
+```yaml
+---
+layout: ../../layouts/ProjectLayout.astro
+title: "My Project"
+description: "One-line description."
+heroImage: "/image.png"
+badge: "Category"
+tags:
+  - Tag1
+  - Tag2
+githubUrl: "https://github.com/Nick-Trigger/repo"
+docs:
+  - title: "Document Name"
+    url: "/path/or/url"
+    description: "Short description"
+---
+```
+
+The slot content (markdown body) is rendered with `prose` typography styles.
+
+---
+
+## Commands
+
+| Command | Action |
+| ------- | ------ |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start dev server at `localhost:4321` |
+| `npm run build` | Build to `./dist/` |
+| `npm run preview` | Preview production build locally |

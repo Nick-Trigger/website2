@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"c:\\\\Users\\\\nickt\\\\source\\\\repos\\\\Nick-Trigger\\\\website2\\\\public\")",
+      "Bash(npx astro *)",
+      "Bash(del \"c:\\\\Users\\\\nickt\\\\source\\\\repos\\\\Nick-Trigger\\\\website2\\\\src\\\\pages\\\\projects\\\\clabsi.astro\")",
+      "Bash(npm install *)",
+      "Bash(dir \"c:\\\\Users\\\\nickt\\\\source\\\\repos\\\\Nick-Trigger\" /b)",
+      "Bash(dir \"c:\\\\Users\\\\nickt\\\\source\\\\repos\" /b)",
+      "Bash(Get-ChildItem -Recurse -Filter \"*.pdf\" \"c:\\\\Users\\\\nickt\\\\source\\\\repos\\\\CLABSI\")",
+      "Bash(Get-ChildItem -Recurse -Filter \"ibom*\" \"c:\\\\Users\\\\nickt\\\\source\\\\repos\\\\CLABSI\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"c:\\\\Users\\\\nickt\\\\source\\\\repos\\\\Nick-Trigger\\\\website2\\\\src\\\\pages\\\\projects\\\\clabsi\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"c:\\\\Users\\\\nickt\\\\source\\\\repos\\\\Nick-Trigger\\\\website2\\\\src\\\\pages\\\\projects\\\\dog\")"
+    ]
+  }
+}
