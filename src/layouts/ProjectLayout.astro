@@ -4,7 +4,7 @@ import BaseLayout from "./BaseLayout.astro";
 export interface Props {
   title: string;
   description: string;
-  heroImage?: string;
+  heroImage?: string | string[];
   badge?: string;
   tags?: string[];
   githubUrl?: string;
@@ -12,7 +12,7 @@ export interface Props {
   frontmatter?: {
     title: string;
     description: string;
-    heroImage?: string;
+    heroImage?: string | string[];
     badge?: string;
     tags?: string[];
     githubUrl?: string;
@@ -21,15 +21,64 @@ export interface Props {
 }
 
 const fm = Astro.props.frontmatter ?? Astro.props;
-const { title, description, heroImage, badge, tags = [], githubUrl, docs = [] } = fm;
+const { title, description, badge, tags = [], githubUrl, docs = [] } = fm;
+
+const rawHero = fm.heroImage;
+const images: string[] = Array.isArray(rawHero) ? rawHero : rawHero ? [rawHero] : [];
+const hasCarousel = images.length > 1;
 ---
 
 <BaseLayout title={`Nicholas Trigger - ${title}`} sideBarActiveItemID="projects">
   <!-- Hero -->
   <div class="mb-8">
-    {heroImage && (
+
+    {images.length === 1 && (
       <div class="w-full rounded-xl overflow-hidden mb-6 bg-neutral shadow-2xl max-h-72 flex items-center justify-center">
-        <img src={heroImage} alt={title} class="w-full object-contain max-h-72" />
+        <img src={images[0]} alt={title} class="w-full object-contain max-h-72" />
+      </div>
+    )}
+
+    {hasCarousel && (
+      <div class="relative w-full rounded-xl overflow-hidden mb-6 bg-neutral shadow-2xl" style="height: 18rem;" data-carousel>
+        <!-- Sliding track -->
+        <div class="flex h-full" style="transition: transform 0.5s ease-in-out;" data-carousel-track>
+          {images.map((img, i) => (
+            <div class="w-full flex-shrink-0 flex items-center justify-center h-full">
+              <img src={img} alt={`${title} — image ${i + 1}`} class="w-full object-contain max-h-72" />
+            </div>
+          ))}
+        </div>
+
+        <!-- Arrows -->
+        <button
+          class="absolute left-3 top-1/2 -translate-y-1/2 btn btn-circle btn-sm bg-base-100/70 hover:bg-base-100 border-0 shadow"
+          aria-label="Previous image"
+          data-carousel-prev
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button
+          class="absolute right-3 top-1/2 -translate-y-1/2 btn btn-circle btn-sm bg-base-100/70 hover:bg-base-100 border-0 shadow"
+          aria-label="Next image"
+          data-carousel-next
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+
+        <!-- Dot indicators -->
+        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2" data-carousel-dots>
+          {images.map((_, i) => (
+            <button
+              class={`w-2 h-2 rounded-full transition-all duration-300 ${i === 0 ? 'bg-primary w-4' : 'bg-base-content/30'}`}
+              aria-label={`Go to image ${i + 1}`}
+              data-carousel-dot={i}
+            />
+          ))}
+        </div>
       </div>
     )}
 
@@ -103,3 +152,49 @@ const { title, description, heroImage, badge, tags = [], githubUrl, docs = [] } 
     </>
   )}
 </BaseLayout>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((carousel) => {
+    const track = carousel.querySelector<HTMLElement>('[data-carousel-track]')!;
+    const dotBtns = carousel.querySelectorAll<HTMLElement>('[data-carousel-dot]');
+    const total = track.children.length;
+    let current = 0;
+    let timer: ReturnType<typeof setInterval>;
+
+    function goTo(index: number) {
+      current = ((index % total) + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dotBtns.forEach((dot, i) => {
+        const active = i === current;
+        dot.classList.toggle('bg-primary', active);
+        dot.classList.toggle('w-4', active);
+        dot.classList.toggle('bg-base-content/30', !active);
+        dot.classList.toggle('w-2', !active);
+      });
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), 5000);
+    }
+
+    carousel.querySelector('[data-carousel-prev]')?.addEventListener('click', () => {
+      goTo(current - 1);
+      resetTimer();
+    });
+
+    carousel.querySelector('[data-carousel-next]')?.addEventListener('click', () => {
+      goTo(current + 1);
+      resetTimer();
+    });
+
+    dotBtns.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        goTo(i);
+        resetTimer();
+      });
+    });
+
+    resetTimer();
+  });
+</script>

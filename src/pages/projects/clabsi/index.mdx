@@ -1,9 +1,14 @@
 ---
 layout: ../../../layouts/ProjectLayout.astro
 title: "CLABSI Prevention Device"
-description: "A handheld UV-C disinfection device for central-line hubs, developed at Duke University's Pratt School of Engineering. Winner of the People's Choice Award."
-heroImage: "/clabfree.png"
-badge: "People's Choice Award"
+description: "A handheld UV-C disinfection device for central-line hubs, developed at Duke University's Pratt School of Engineering."
+heroImage:
+  - "/clabfree.png"
+  - "/clabfree2_pcb.jpg"
+  - "/clabfree_frontopen.jpg"
+  - "/clabfree_frontclosed_cath.jpg"
+  - "/clabfree_mdesign.png"
+badge: "Senior Capstone"
 tags:
   - Embedded Systems
   - PCB Design
@@ -12,12 +17,15 @@ tags:
   - Duke BME
 githubUrl: "https://github.com/Nick-Trigger/CLABSI"
 docs:
+  - title: "Design History File"
+    url: "/projects/clabsi/dhf"
+    description: "Final Design History File"
+  - title: "Final Poster"
+    url: "/projects/clabsi/poster"
+    description: "Duke BME capstone poster"
   - title: "Interactive BOM"
     url: "/clabsi-ibom.html"
     description: "KiCad interactive bill of materials — click components to highlight on the PCB"
-  - title: "Final Poster"
-    url: "/projects/clabsi/poster"
-    description: "Duke BME capstone poster — People's Choice Award"
   - title: "Gerber Files"
     url: "https://github.com/Nick-Trigger/CLABSI/tree/main/KiCad/Exports"
     description: "Fab-ready Gerber exports for all three PCB boards"
