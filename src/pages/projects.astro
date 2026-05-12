@@ -18,9 +18,20 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   <div class="divider my-0"></div>
 
   <HorizontalCard
+    title="CLABSI Prevention Device"
+    img="/post_img.webp"
+    desc="A handheld medical device designed to disinfect central line hubs and prevent Central Line Associated Bloodstream Infections (CLABSI) in clinical settings. Features embedded C firmware, custom KiCad PCB design, and CAD-modeled enclosure."
+    url="https://github.com/Nick-Trigger/CLABSI"
+    target="_blank"
+    badge="Medical Device"
+  />
+
+  <div class="divider my-0"></div>
+
+  <HorizontalCard
     title="Dog Activity Trackers"
     img="/savinggrace.jpg"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    desc="Wearable activity monitoring system for dogs, tracking movement and behavioral data."
     url="/projects/dog"
   />
 
@@ -29,24 +40,37 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   </div>
 
   <HorizontalCard
+    title="ECG Synthesizer (ECG_SYN)"
+    img="/post_img.webp"
+    desc="An ESP32-based ECG synthesizer that generates physiologically accurate cardiac waveforms. Built with C++ and PlatformIO for embedded biomedical signal generation, based on the same EKG simulator developed for Duke's BME teaching labs."
+    url="https://github.com/Nick-Trigger/ECG_SYN"
+    target="_blank"
+    badge="Embedded Systems"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="BME 354 Multi-Chip IC Tester"
+    img="/post_img.webp"
+    desc="A multi-chip integrated circuit tester designed for BME 354 coursework at Duke. Features a custom KiCad PCB layout for validating multiple ICs in sequence."
+    url="https://github.com/Nick-Trigger/BME-354-Chip-Tester"
+    target="_blank"
+    badge="Hardware"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="PET/CT Brain Phantom Simulator"
+    img="/post_img.webp"
+    desc="A physics-based PET/CT brain phantom simulator implementing phantom generation, CT simulation, and PET simulation pipelines. Built with Python and Jupyter Notebook for medical imaging education and research."
+    url="https://github.com/Nick-Trigger/Pet-Scan-Simulator-303-Final-Project"
+    target="_blank"
+    badge="Medical Imaging"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
     title="This Website"
     img="/globe.png"
     desc="This one. It is built with Astro and Tailwind CSS."
     url="https://github.com/Nick-Trigger/website2"
     target="_blank"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 4"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 5"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
   />
 </BaseLayout>
