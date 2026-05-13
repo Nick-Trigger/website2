@@ -10,7 +10,9 @@
       "Bash(Get-ChildItem -Recurse -Filter \"*.pdf\" \"c:\\\\Users\\\\nickt\\\\source\\\\repos\\\\CLABSI\")",
       "Bash(Get-ChildItem -Recurse -Filter \"ibom*\" \"c:\\\\Users\\\\nickt\\\\source\\\\repos\\\\CLABSI\")",
       "PowerShell(New-Item -ItemType Directory -Force \"c:\\\\Users\\\\nickt\\\\source\\\\repos\\\\Nick-Trigger\\\\website2\\\\src\\\\pages\\\\projects\\\\clabsi\")",
-      "PowerShell(New-Item -ItemType Directory -Force \"c:\\\\Users\\\\nickt\\\\source\\\\repos\\\\Nick-Trigger\\\\website2\\\\src\\\\pages\\\\projects\\\\dog\")"
+      "PowerShell(New-Item -ItemType Directory -Force \"c:\\\\Users\\\\nickt\\\\source\\\\repos\\\\Nick-Trigger\\\\website2\\\\src\\\\pages\\\\projects\\\\dog\")",
+      "PowerShell(Get-ChildItem \"$env:USERPROFILE\\\\Downloads\" | Where-Object { $_.Name -match \"PATS|arm|venturewell\" })",
+      "PowerShell(Copy-Item \"$env:USERPROFILE\\\\Downloads\\\\PATS_DukeUniversity_ETeamapplication.pdf\" \"c:\\\\Users\\\\nickt\\\\source\\\\repos\\\\Nick-Trigger\\\\website2\\\\public\\\\PATS_arm.pdf\")"
     ]
   }
 }
