@@ -2,7 +2,7 @@
 
 Personal portfolio site for Nicholas Trigger — Duke BME Alum '26, focusing on biomedical device engineering.
 
-Live at [nicholastrigger.com](https://nicholastrigger.com).
+Live at [nicholastrigger.com](https://nicholastrigger.com) [![Deployment](https://github.com/Nick-Trigger/website2/actions/workflows/deploy.yml/badge.svg)](https://github.com/Nick-Trigger/website2/actions/workflows/deploy.yml)
 
 ---
 
